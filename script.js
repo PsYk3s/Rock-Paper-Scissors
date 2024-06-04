@@ -13,10 +13,7 @@ function getHumanChoice() {
 }
 
 //Play a round to see who the winner is or if a tie
-function playRound() {
-
-    const humanChoice = getHumanChoice().toLowerCase();
-    const computerChoice = getComputerChoice();
+function playRound(humanChoice, computerChoice) {
 
     //Check to see who wins and increment score, otherwise tie up
     humanChoice == "rock" && computerChoice == "Paper" ||
@@ -36,7 +33,10 @@ function playGame() {
     computerScore = 0;
     for (let i = 0; i < 5; i++) {
 
-        playRound()
+        const humanSelection = getHumanChoice().toLowerCase();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
         
         console.log("You: " + humanScore + " - Computer: " + computerScore)
     }
