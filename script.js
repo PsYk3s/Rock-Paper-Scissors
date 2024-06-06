@@ -1,5 +1,5 @@
-let humanScore;
-let computerScore;
+let humanScore = 0;
+let computerScore = 0;
 
 //Return a random number between 1 and 3, then assign ro Rock, Paper or Scissors.
 function getComputerChoice() {
@@ -15,6 +15,13 @@ function getHumanChoice() {
 //Play a round to see who the winner is or if a tie
 function playRound(humanChoice, computerChoice) {
 
+    const humanSelection = getHumanChoice().toLowerCase();
+    const computerSelection = getComputerChoice();
+    }
+    humanScore < computerScore ? console.log("You lost, " + humanScore + " to " + computerScore) :
+    humanScore > computerScore ? console.log("You won!, " + humanScore + " to " + computerScore) :  
+    console.log("No winner, press f5 to try again!")
+
     //Check to see who wins and increment score, otherwise tie up
     humanChoice == "rock" && computerChoice == "Paper" ||
     humanChoice == "paper" && computerChoice == "Scissors" ||
@@ -27,28 +34,5 @@ function playRound(humanChoice, computerChoice) {
     console.log("You picked " + humanChoice + " and the computer picked " + computerChoice + "!")
 };
 
-//Play 5 rounds and return winner/loser/tie
-function playGame() {
-    humanScore = 0;
-    computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-
-        const humanSelection = getHumanChoice().toLowerCase();
-        const computerSelection = getComputerChoice();
-
-        playRound(humanSelection, computerSelection);
-        
-        console.log("You: " + humanScore + " - Computer: " + computerScore)
-    }
-    humanScore < computerScore ? console.log("You lost the game, " + humanScore + " to " + computerScore + ", press f5 to try again!") :
-    humanScore > computerScore ? console.log("You won the game!, " + humanScore + " to " + computerScore + ", press f5 to try again!") :
-    
-    console.log("No winner, press f5 to try again!")
-
-}
-
-//Makes it clearer to see when a new game starts
-console.log("=========================New Game===========================")
-
 //Starts the game
-playGame()
+playRound()
